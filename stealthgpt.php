@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name:       StealthGPT
- * Plugin URI:        https://www.stealthgpt.ai
  * Description:       Generate and humanize natural, human, publish-ready content with the StealthGPT API. Output is always saved to a draft for your review.
  * Version:           1.0.0
  * Requires at least: 6.0
