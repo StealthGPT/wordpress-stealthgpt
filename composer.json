@@ -1,0 +1,35 @@
+{
+    "name": "xyzai/stealthgpt",
+    "description": "StealthGPT for WordPress: generate and humanize natural, human, publish-ready content via the StealthGPT API.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.stealthgpt.ai",
+    "authors": [
+        {
+            "name": "XYZ AI LLC",
+            "homepage": "https://www.stealthgpt.ai"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "league/commonmark": "^2.7",
+        "woocommerce/action-scheduler": "^3.9"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "wp-coding-standards/wpcs": "^3.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
+    }
+}

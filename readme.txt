@@ -1,0 +1,70 @@
+=== StealthGPT ===
+Contributors: xyzai
+Tags: ai, content, writing, humanize, seo
+Requires at least: 6.0
+Tested up to: 7.0
+Requires PHP: 7.4
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Generate and humanize natural, human, publish-ready content with the StealthGPT API. Output is always saved to a draft for your review.
+
+== Description ==
+
+StealthGPT for WordPress connects your site to the StealthGPT API so you can create natural, human, publish-ready content without leaving the editor.
+
+Two modes are available:
+
+* **Generate** — a full content pipeline (research, drafting, optional fact-check, optional images) from a prompt, with SEO, academic, and social presets.
+* **Humanize** — turn existing text into natural, human-reading content.
+
+Content is produced asynchronously: you start a run, and the result is written to a **draft** post when it finishes. The plugin never auto-publishes — you always review and publish yourself.
+
+Completion is delivered via a signed webhook when your site is publicly reachable, and falls back to background polling (via Action Scheduler) otherwise, so it also works on private or local sites.
+
+= Features =
+
+* Meta box in the post/page editor and a dedicated "StealthGPT" admin page.
+* Bring your own StealthGPT API token (entered on the settings page, validated against your account balance).
+* Output is always saved as a draft for review.
+* Markdown output is converted to editor-ready content.
+* Secure: signed (HMAC-SHA256) webhook verification, capability checks, and nonces on all actions.
+
+== External services ==
+
+This plugin connects to the StealthGPT API (provided by XYZ AI LLC) to generate and humanize content. It is required for the plugin to function.
+
+**What is sent and when:** When you start a generation or humanization run, the prompt and/or text you provide, along with your run options, are sent to StealthGPT over HTTPS using the API token you configure. To receive the completed result, the plugin may register a webhook URL on your site and/or poll the StealthGPT status endpoint for that run. Your API token is sent with each request for authentication.
+
+* Service: StealthGPT — https://www.stealthgpt.ai
+* Terms of Service: https://www.stealthgpt.ai/terms
+* Privacy Policy: https://www.stealthgpt.ai/privacy
+
+You need a StealthGPT account and API token to use this plugin. Get a token at https://www.stealthgpt.ai/stealthapi
+
+== Installation ==
+
+1. Upload the `stealthgpt` folder to `/wp-content/plugins/`, or install the plugin through the Plugins screen in WordPress.
+2. Activate the plugin.
+3. Go to **StealthGPT → Settings** and enter your StealthGPT API token. The plugin validates it against your account balance.
+4. Use the **StealthGPT** meta box in the post editor, or the **StealthGPT → New content** page, to start a run. The result is saved to a draft.
+
+== Frequently Asked Questions ==
+
+= Does it publish automatically? =
+
+No. Output is always saved as a draft. You review and publish it yourself.
+
+= Do I need a StealthGPT account? =
+
+Yes. You bring your own API token from https://www.stealthgpt.ai/stealthapi
+
+= Will it work on a local or private site? =
+
+Yes. Webhooks can only reach publicly accessible sites, so on local/private installs the plugin automatically falls back to background polling to retrieve results.
+
+== Changelog ==
+
+= 1.0.0 =
+* Initial release: generate and humanize content, BYO API token, draft output, signed webhook with polling fallback.

@@ -1,0 +1,23 @@
+# Files and directories that should NOT ship in the WordPress.org package.
+# Note: /vendor IS shipped (runtime dependencies), so it is not listed here.
+
+/.git
+/.github
+/.gitignore
+/.distignore
+/node_modules
+/tests
+/.wordpress-org
+
+composer.json
+composer.lock
+phpcs.xml.dist
+phpcs.xml
+package.json
+package-lock.json
+.wp-env.json
+.wp-env.override.json
+.editorconfig
+.DS_Store
+Thumbs.db
+*.log

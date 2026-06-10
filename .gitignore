@@ -1,0 +1,20 @@
+# Composer dependencies are installed at build/deploy time, not committed.
+# composer.lock IS committed for reproducible builds.
+/vendor/
+
+# Node tooling (wp-env, build helpers)
+/node_modules/
+
+# Local WordPress test environment
+/.wp-env.override.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Never commit secrets. The StealthGPT API token lives only in a site's
+# WordPress options at runtime; the webhook secret is generated per-site.
+.env
+.env.*
+*.local

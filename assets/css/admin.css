@@ -1,0 +1,48 @@
+.stealthgpt-app .stealthgpt-modes {
+	margin-bottom: 12px;
+	display: flex;
+	gap: 16px;
+}
+
+.stealthgpt-app .stealthgpt-fields label {
+	font-weight: 600;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.stealthgpt-app textarea,
+.stealthgpt-app select {
+	width: 100%;
+}
+
+.stealthgpt-app .stealthgpt-warning {
+	background: #fcf9e8;
+	border-left: 4px solid #dba617;
+	padding: 8px 12px;
+	margin-bottom: 12px;
+}
+
+.stealthgpt-app .stealthgpt-status {
+	margin-top: 8px;
+	min-height: 1.4em;
+	font-size: 13px;
+}
+
+.stealthgpt-app .sg-ok {
+	color: #1a7f37;
+	font-weight: 600;
+}
+
+.stealthgpt-app .sg-err {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+.stealthgpt-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px;
+	max-width: 640px;
+	margin-top: 16px;
+}
