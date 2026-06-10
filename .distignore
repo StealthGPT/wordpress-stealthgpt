@@ -18,6 +18,7 @@ package-lock.json
 .wp-env.json
 .wp-env.override.json
 .editorconfig
+icon.png
 .DS_Store
 Thumbs.db
 *.log

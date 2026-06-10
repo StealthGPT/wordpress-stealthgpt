@@ -64,6 +64,13 @@ Yes. You bring your own API token from https://www.stealthgpt.ai/stealthapi
 
 Yes. Webhooks can only reach publicly accessible sites, so on local/private installs the plugin automatically falls back to background polling to retrieve results.
 
+== Screenshots ==
+
+1. The "StealthGPT → New content" page: generate a full article from a prompt with SEO, academic, or social presets.
+2. Humanize mode: paste text, start a run, and get a link to the finished draft when it completes.
+3. The StealthGPT meta box in the post editor sidebar.
+4. The settings page: bring your own API token, validated against your StealthGPT account balance.
+
 == Changelog ==
 
 = 1.0.0 =

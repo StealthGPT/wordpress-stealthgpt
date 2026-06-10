@@ -8,6 +8,9 @@
 # Local WordPress test environment
 /.wp-env.override.json
 
+# Build artifacts
+*.zip
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
