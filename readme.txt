@@ -1,5 +1,5 @@
 === StealthGPT ===
-Contributors: xyzai
+Contributors: danilstealthgpt
 Tags: ai, content, writing, humanize, seo
 Requires at least: 6.0
 Tested up to: 7.0
