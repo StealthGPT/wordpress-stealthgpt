@@ -9,8 +9,8 @@
 /tests
 /.wordpress-org
 
-composer.json
 composer.lock
+*.zip
 phpcs.xml.dist
 phpcs.xml
 package.json
