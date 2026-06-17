@@ -4,7 +4,7 @@ Tags: ai, content, writing, humanize, seo
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,12 +68,15 @@ Yes. Webhooks can only reach publicly accessible sites, so on local/private inst
 
 == Screenshots ==
 
-1. The StealthGPT → New content page: generate a full article from a prompt with SEO, academic, or social presets.
+1. The StealthGPT New content admin page: generate a full article from a prompt with SEO, academic, or social presets.
 2. Humanize mode: paste text, start a run, and get a link to the finished draft when it completes.
 3. The StealthGPT meta box in the post editor sidebar.
 4. The settings page: bring your own API token, validated against your StealthGPT account balance.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fully fix the screenshot caption on the plugin directory page (the menu arrow character was breaking the image markup).
 
 = 1.0.1 =
 * Clarify in the readme that this is the official plugin from XYZ AI LLC and that the plugin (not the StealthGPT service) is the free, open-source part.
