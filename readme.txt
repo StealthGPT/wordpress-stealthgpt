@@ -4,15 +4,17 @@ Tags: ai, content, writing, humanize, seo
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Generate and humanize natural, human, publish-ready content with the StealthGPT API. Output is always saved to a draft for your review.
+Official StealthGPT plugin: generate and humanize natural, publish-ready content. Output is always saved to a draft for your review.
 
 == Description ==
 
 StealthGPT for WordPress connects your site to the StealthGPT API so you can create natural, human, publish-ready content without leaving the editor.
+
+This is the official StealthGPT plugin, developed and maintained by XYZ AI LLC (the makers of StealthGPT) — not a third-party or community integration. The plugin is free and open source, released under the GPL. StealthGPT itself is a separate commercial service; the plugin is a client that connects to it using your own API token (see "External services" below).
 
 Two modes are available:
 
@@ -66,12 +68,16 @@ Yes. Webhooks can only reach publicly accessible sites, so on local/private inst
 
 == Screenshots ==
 
-1. The "StealthGPT → New content" page: generate a full article from a prompt with SEO, academic, or social presets.
+1. The StealthGPT → New content page: generate a full article from a prompt with SEO, academic, or social presets.
 2. Humanize mode: paste text, start a run, and get a link to the finished draft when it completes.
 3. The StealthGPT meta box in the post editor sidebar.
 4. The settings page: bring your own API token, validated against your StealthGPT account balance.
 
 == Changelog ==
+
+= 1.0.1 =
+* Clarify in the readme that this is the official plugin from XYZ AI LLC and that the plugin (not the StealthGPT service) is the free, open-source part.
+* Fix a broken screenshot caption on the plugin directory page.
 
 = 1.0.0 =
 * Initial release: generate and humanize content, BYO API token, draft output, signed webhook with polling fallback.
