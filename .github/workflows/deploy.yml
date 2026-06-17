@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "*"
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -22,7 +23,24 @@ jobs:
       - name: Install production dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
+      - name: Read plugin version
+        id: version
+        run: |
+          VERSION="$(grep -i '^Stable tag:' readme.txt | head -1 | sed -E 's/.*:[[:space:]]*//' | tr -d '[:space:]')"
+          if [ -z "$VERSION" ]; then
+            echo "::error::Could not read 'Stable tag' from readme.txt"
+            exit 1
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Plugin version: ${VERSION}"
+
+      # The WordPress.org SVN server intermittently returns a transient error
+      # (svn E000002 "txn/props: No such file or directory") while acknowledging
+      # an otherwise-successful commit. We let this step "fail" softly and treat
+      # the actual SVN state as the source of truth in the verification step.
       - name: WordPress.org deploy
+        id: deploy
+        continue-on-error: true
         uses: 10up/action-wordpress-plugin-deploy@stable
         with:
           generate-zip: true
@@ -30,3 +48,20 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG: stealthgpt
+
+      - name: Verify deployment landed in SVN
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          TAG_URL="https://plugins.svn.wordpress.org/stealthgpt/tags/${VERSION}/stealthgpt.php"
+          echo "Verifying ${TAG_URL}"
+          for attempt in 1 2 3 4 5 6; do
+            CODE="$(curl -s -o /dev/null -w '%{http_code}' "$TAG_URL")"
+            if [ "$CODE" = "200" ]; then
+              echo "Tag ${VERSION} is live in the plugin SVN (HTTP 200). Deployment succeeded."
+              exit 0
+            fi
+            echo "Attempt ${attempt}: HTTP ${CODE}; retrying in 20s..."
+            sleep 20
+          done
+          echo "::error::Tag ${VERSION} is not present in SVN after retries (deploy outcome: ${{ steps.deploy.outcome }})."
+          exit 1
